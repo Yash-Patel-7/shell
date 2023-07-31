@@ -1,0 +1,4 @@
+Test: mysh only takes up to one argument
+
+1.  If more than one argument is given to mysh, an error message will be printed (Usage: './mysh' or './mysh myscript.sh').
+2.  This makes sense, as mysh will either take no arguments to enter Interactive Mode, or one argument to enter Batch mode.

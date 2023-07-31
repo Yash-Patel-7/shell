@@ -1,0 +1,3 @@
+Welcome to MySH 3.0
+mysh> command not found: fkjlf
+!mysh> mysh: exiting

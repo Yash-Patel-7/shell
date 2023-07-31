@@ -1,0 +1,12 @@
+Tests:
+    1.  If given one argument, it will run in batch mode
+    2.  If given no arguments, it will run in interactive mode
+
+Batch Mode:
+    1.  When given one argument, mysh successfully enters batch mode. This is proven by the absence of any
+        any greetings and prompts in testSuite/A/2/outBAT.txt that would be required for Interactive Mode.
+
+Interactive Mode:
+    2.  When given no arguments, mysh successfully enters interactive mode. This is proven by the output of
+        a greeting and prompt before reading the first command from stdin.
+            a.  Note that in test.c, stdin is set to file testSuite/A/2/myscript.sh.
