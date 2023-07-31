@@ -1,0 +1,5 @@
+Test:   mysh terminates once it reaches the end of input file
+
+Batch Mode:
+    1.  There is no exit command in file testSuite/B/2/myscript.sh, however mysh still terminates.
+    2.  This proves mysh successfully interprets the end of file testSuite/B/2/myscript.sh as a reason to terminate.

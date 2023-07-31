@@ -1,0 +1,5 @@
+Test:   mysh terminates when it encounters the command exit
+
+Batch Mode:
+    1.  Any shell command inputted after the shell command exit will not be executed, and thus its output is not 
+        written to stdout (testSuite/B/3/outBAT.txt)

@@ -1,0 +1,9 @@
+Test:   mysh will execute the commands sequentially (execute command, wait for completion, then execute next command)
+
+Batch Mode:
+    1.  To check that the commands are not executing concurrently and their outputs are not written to stdout in a random 
+    order,the exit shell command is used. 
+    2.  The order in which the shell commands are inputed in testSuite/B/1/myscript.sh before the exit shell command is the 
+    order in which the outputs are written to stdout (testSuite/B/1/outBAT.txt). 
+    3.  Any command after the exit shell command is not executed and thus not written to stdout. 
+    4.  This means that mysh is executing the commands sequentially.
