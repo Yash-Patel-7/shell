@@ -1,0 +1,3 @@
+foo
+command can not have multiple stdout redirections
+command can not have multiple stdin redirections

@@ -1,0 +1,4 @@
+Welcome to MySH 3.0
+mysh> mysh> command can not have multiple stdout redirections
+!mysh> command can not have multiple stdin redirections
+!mysh> mysh: exiting

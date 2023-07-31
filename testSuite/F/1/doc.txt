@@ -1,0 +1,19 @@
+Tests:	
+1.	A process has exactly one STDIN and STDOUT. This can be inherited from the parent (mysh) or explicitly changed to a pipe 
+	or opened file using dup2(). 
+2.	Commands that specify more than one input or output source cannot be performed as requested, so mysh must either reject
+	the command or choose which input or output source will be used.
+3.	We will test commands like these only to make sure your project does not crash or do something unreasonable.
+
+Both Modes:
+1.	If the command can be performed, mysh will do so without printing errors.
+2.	If the command has invalid syntax, mysh will print error message: "command has invalid syntax"
+3.	If the command contains a broken pipe, an error message "Broken pipe" is printed. 
+4.	Thus, mysh will never crash or do something unreasonable no matter what commands are passed.
+
+Interactive Mode:	
+1.	The first shell command is the only command that executes successfully. 
+		a.	While bar.txt is deleted before and after running this test case, mysh still creates the file and performs the
+			specified command.
+		b.	It is proven mysh executed the first command correctly because the fourth command calling cat reveals what is
+			stored in testSuite/F/1/bar.txt (foo) before it is deleted. 
