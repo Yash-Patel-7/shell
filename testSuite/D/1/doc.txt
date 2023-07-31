@@ -1,0 +1,6 @@
+Test:   There is no intrinsic limit to the length of a command that will cause mysh to fail. 
+
+1. To prove that no length of the command will cause mysh to fail, a large file consisting of tokens and whitespace
+is used to determine whether mysh will identify the first tokens of each sub-command and execute them.
+2. mysh will continute parsing through commands until it reaches the end of the file set to stdin (testSuite/D/3/myscript.sh)
+or encounters the exit command.

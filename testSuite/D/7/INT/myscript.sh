@@ -1,0 +1,1 @@
+./mysh < testSuite/D/6/INT/myscript.sh

@@ -1,0 +1,3 @@
+this is read from stdin from pipesIN.c: this is written to stdout from pipesOUT.c
+this is read from stdin from pipesIN.c: this is written to stdout from pipesOUT.c
+command not found: testSuite/D/8/random

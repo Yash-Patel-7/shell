@@ -1,0 +1,21 @@
+Test:   If the command is not built-in and not a path, mysh checks the following directories in the same order for a file 
+        with the specified name: 
+        1. /usr/local/sbin
+        2. /usr/local/bin
+        3. /usr/sbin
+        4. /usr/bin
+        5. /sbin
+        6. /bin 
+
+1.  cat is an external linux command found in /bin that outputs the contents of a filename given as an argument.
+2.  mysh will interpet cat as a command that is not built-in and does not contain a slash (/), thus it will check the
+    appropiate directories in order, as shown in mysh.c. 
+3.  Since cat is exectuable, mysh will execute cat and output no errors given that the appropiate arguments are given.
+4.  If a file is found when searching through the directories listed above in order, but the file cannot be executed,
+    then mysh will print an error message. This is shown in mysh.c.
+        a.  As show in mysh.c, mysh will not continue looking in the remaining directories if a file is found, but cannot 
+            be executed.
+5.  If the command is not built-in, not a path, and not found in the directories listed above, mysh prints an error
+    message (command not found: commandName)
+
+

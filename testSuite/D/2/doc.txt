@@ -1,0 +1,9 @@
+Test:   The code interprets the first token of a command or sub-command as the program/built-in operation to execute. 
+
+1.  The built-in commands exit, pwd, and cd are used to determine whether mysh interprets the first token of a 
+    command or sub-command as the program/built-in operation to execute.
+2.  The cd command successfully changes to the desired directory, as proven by the pwd command, which displays the present
+    working directory.
+3.  The echo command successfully displays the strings after echo
+4.  mysh successfully identifies the first token as the command to execute and will not interpret other tokens as a 
+    command/built-in operation.

@@ -1,0 +1,6 @@
+Welcome to MySH 3.0
+mysh> chdir: No such file or directory
+!mysh> pwd: too many arguments
+!mysh> exit: too many arguments
+!mysh> cd: too many arguments
+!mysh> mysh: exiting

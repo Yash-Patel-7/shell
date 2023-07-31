@@ -1,0 +1,5 @@
+Welcome to MySH 3.0
+mysh> this is read from stdin from pipesIN.c: this is written to stdout from pipesOUT.c
+mysh> this is read from stdin from pipesIN.c: this is written to stdout from pipesOUT.c
+!mysh> command not found: testSuite/D/8/random
+!mysh> mysh: exiting

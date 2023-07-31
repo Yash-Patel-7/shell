@@ -1,0 +1,39 @@
+Test: 
+1.  When redirecting the output, if the file does not exist, the file should be created using mode 0640 
+    (S_IRUSR|S_IWUSR|S_IRGRP)
+2.  When redirecting the output, if the file already exists, the file should be truncated.
+3.  If mysh is unable to open the file in the requested mode, mysh reports an error, and the last exit status is set to 1.
+
+NOTE:   If this test case fails, for each command, look at the order the files are outputted versus how they are outputted
+        in the expected file. If they are in a different order, but the files outputted are equivalent, then this test case
+        actually passes. We are not in control of how the files are outputted from commands like ls.
+
+Batch Mode:
+1.  The stdout of the argument passed into mysh is set to testSuite/D/7/BAT/outBAT1.txt. If this file does not exist, 
+    the file is created using mode 0640 (S_IRUSR|S_IWUSR|S_IRGRP)
+        a.  In test.c, a system call is used to delete outBAT1.txt before and after redirecting stdout of the argument
+            passed into mysh. This ensures that a file is always created, written to, and compared with expBAT1.txt.
+2.  By running ./test multiple times in a row, it is proved that if the file already exists, then mysh truncates the
+    output file before writing to it. Otherwise, the test case would not pass if the output file was in any other mode.
+        a.  If outBAT2.txt was not truncated by mysh, then Test Case D_7_BA2 would fail after running ./test multiple
+            times.
+3. If mysh is unable to open the file in the requested mode, mysh reports an error, and the last exit status is set to 1.
+
+Interactive Mode:
+1.  The stdout of mysh is set to testSuite/D/7/INT/OUT1.txt, and the stdin of testSuite/D/7/INT/OUT1.txt is set to 
+    testSuite/D/7/INT/myscript.sh.
+        a.  The file testSuite/D/7/INT/myscript.sh contains a command that will set:
+                i.  the stdin of mysh to testSuite/D/6/INT/myscript.sh
+                ii. the stdout of testSuite/D/6/INT/myscript.sh to testSuite/D/7/INT/OUT1.txt
+        b.  This means that mysh will be ran within mysh, and all stdout will be written to testSuite/D/7/INT/OUT1.txt,
+            hence why mysh is exiting twice. Once it reaches end of file testSuite/D/6/INT/myscript.sh, mysh will
+            exit. However, it must also reach the end of file testSuite/D/7/INT/myscript.sh before exiting again and
+            completing the system call.
+        c.  In test.c, a system call is used to delete OUT1.txt before and after redirecting stdout of mysh. This ensures
+            that a file is always created, written to, and compared with expOUT1.txt.
+2.  By running ./test multiple times in a row, it is proved that if the file already exists, then mysh truncates the
+    output file before writing to it. Otherwise, the test case would not pass if the output file was in any other mode.
+        a.  If OUT2.txt was not truncated by mysh, then Test Case D_7_IN2 would fail after running ./test multiple
+            times.
+3. If mysh is unable to open the file in the requested mode, mysh reports an error, and the last exit status is set to 1.
+        

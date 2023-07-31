@@ -1,0 +1,4 @@
+welcome to myscriptD4.sh
+read: Is a directory
+open: No such file or directory
+open: No such file or directory

@@ -1,0 +1,7 @@
+Test:	Input/output redirection can occur anywhere in a command string. All words not appearing after a 
+        < or > are passed to the specified program as arguments.
+
+For both modes: 
+1.	All three commands return the same output, proving that mysh 
+        a.	recognizes redirection no matter where it appears
+		b.	recognizes words not appearing after < or > as arguments and passes them to the specified program

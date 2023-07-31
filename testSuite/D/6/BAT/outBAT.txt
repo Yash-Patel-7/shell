@@ -1,0 +1,10 @@
+welcome to myscriptD4.sh
+hello
+end of file
+hi
+hello
+world
+Usage: './mysh' or './mysh myscript.sh'
+ran*dom.sh
+command not found: c*t
+hello

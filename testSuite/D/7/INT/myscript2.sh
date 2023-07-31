@@ -1,0 +1,1 @@
+./mysh<testSuite/D/100/INT/myscript.sh > testSuite/D/7/INT/OUT2.txt

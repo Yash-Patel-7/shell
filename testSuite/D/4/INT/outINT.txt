@@ -1,0 +1,5 @@
+Welcome to MySH 3.0
+mysh> you have successfully executed hello.c
+mysh> command not found: testSuite/random/randomFile
+!mysh> command not found: testSuite/D/4/INT
+!mysh> mysh: exiting

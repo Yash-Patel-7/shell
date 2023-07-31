@@ -1,0 +1,7 @@
+/common/home/ypp10/Desktop/Systems/p2
+/common/home/ypp10/Desktop/Systems
+/common/home/ypp10/Desktop/Systems/p2
+this should work
+pwd
+cd
+exit

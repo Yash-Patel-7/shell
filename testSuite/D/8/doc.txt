@@ -1,0 +1,30 @@
+Test:   mysh allows for a single pipe to connect two processes
+1.	If the pipe can be created, the exit status of the command is set to the exit status of the last sub-command.
+2.	If the pipe cannot be created, mysh prints an error message, and the last exit status is set to 1.
+
+NOTE:	There is a possibility of a program waiting forever for an input. This is because either an input file is not 
+        specified, so it waits for the user to enter something, or the actual implementation never exits.
+
+Implementation Difference:
+1.	As discussed with Professor Menendez, our implementation of the pipeline should be accepted despite being different
+	than the implementation in the "Additional Notes" announcement.
+2.	Our implementation is:
+		a.	Look through the pipeline for built-in commands and execute them first.
+		b.	After executing all built-in commands in the pipleline, all other executables are then executed.
+3. 	Professor Menendez has stated our approach is "reasonable and thus accepted".
+4. 	Professor Menendez has explained to us personally after lecture that he "did not specify the additional notes in the pdf
+	file. Thus, as long as the program does not crash and meets the original requirements, you should get a 100%".
+
+Implementation Reasoning:
+1.	By definition, all programs in a pipeline are supposed to run concurrently (at the same time). So having built-in
+	commands in a pipeline would contradict the definition because the executables would have to wait for the built-in
+	commands (cd and pwd). This would be the same thing as sequential execution, not a pipeline. 
+2.	Waiting for other processes before "exit" in a pipeline contradicts the definition of a pipeline because it would 
+	make it sequential execution.
+
+For both modes:
+1.	mysh will successfully create the pipe and execute commands in the pipeline as specified.
+		a.	the exit status of the command is set to the exit status of the last sub-command
+2.	If the pipe cannot be created, mysh prints an error message, and the last exit status is set to 1.
+3.	In interactive mode, the change in the prompts before reading stdin proves mysh is setting the exit status of the
+	command correctly.

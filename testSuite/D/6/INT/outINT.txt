@@ -1,0 +1,8 @@
+Welcome to MySH 3.0
+mysh> mysh> ../../../../testSuite/D/4/INT/hello.c ../../../../testSuite/D/6/INT/echo.c
+mysh> ../../../../testSuite/A/2/expINT.txt ../../../../testSuite/A/2/expBAT.txt
+mysh> ../../../../testSuite/A/2/outINT.txt ../../../../testSuite/A/2/outBAT.txt
+mysh> echo.c echo expINT.txt myscript.sh outINT.txt
+mysh> testSuite/*
+mysh> command not found: echo.c
+!mysh> mysh: exiting

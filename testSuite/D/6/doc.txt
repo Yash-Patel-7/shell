@@ -1,0 +1,52 @@
+Tests:
+    I. Wildcards(*)
+        1.  mysh matches any file in the specified directory whose name begins with the characters before the asterisk 
+            AND ends with the characters after the asterisk.
+        2.  When a command includes a wildcard token, it is replaced in the argument list by the list of names matching
+            the pattern.
+        3.  If no names match the pattern, mysh passes the token to the command unchanged.
+        4.  Wildcards may occur anywhere in a command. Note, this means that wildcard expansion is allowed in the first word.
+        5.  For example, if the working directory contains a file named "echo", the command "ec*o foo" should work (unless the 
+            working directory contains other files whose names begin with "ec" and end with "o"
+
+    II. Extension: Directory Wildcards
+        1.  Asterisks may occur in any segment of a path. For example, */*.c references files ending with .c in any 
+            subdirectory of the working directory (excluding files and subdirectories that begin with a period).
+        2.  You may allow more than one asterisk within a path segment, but this is not required.
+
+NOTE:   If this test case fails, for each command, look at the order the files are outputted versus how they are outputted
+        in the expected file. If they are in a different order, but the files outputted are equivalent, then this test case
+        actually passes. We are not in control of how the files are outputted from commands like ls.
+        
+Batch Mode:
+    1.  In test.c, 5 unique systems calls are used to test whether mysh matches any file in the specified directory whose
+        name begins with the characters before the asterisk AND ends with the characters after the asterisk.
+    2.  It is proved mysh successfully replaces the wildcard token in a command with the list of names matching the 
+        pattern. 
+            a.  This is because outBAT.txt contains the correct output of commands stored in the files that mysh replaces
+                the wildcard token with.
+    3.  If a wildcard token leads to a directory, directories, or multiple files, an error message 
+        (Usage: './mysh' or './mysh myscript.sh') is printed. This is because in batch mode, mysh only takes one file 
+        as an argument to open and interpret its contents as a sequence of commands.
+    4.  If no names match the pattern, mysh passes the token to the command unchanged. This is proven by file 
+        testSuite/D/6/BAT/myscript.sh, where ran*dom.txt will not match with any name, thus the token is passed to echo
+        unchanged.
+
+Interactive Mode:
+    1.  In /Users/jasmitsingh/Downloads/p2/testSuite/D/6/INT/myscript.sh, 5 unique commands are passed into stdin to test
+        to test whether mysh matches any file in the specified directory whose name begins with the characters before the 
+        asterisk AND ends with the characters after the asterisk.
+    2.  It is proved mysh successfully replaces the wildcard token in a command with the list of names matching the 
+        pattern.
+            a.  This is because outINT.txt contains the correct output of commands stored in the files that mysh replaces
+                the wildcard token with.
+    4.  If no names match the pattern, mysh passes the token to the command unchanged. This is proven by command 
+        echo testSuite/* , where testSuite/* only contains subdirectories, and thus will not match with any names.
+    5.  Note, that wildcard tokens are used to match the names of files with the specified pattern, not directories.
+
+Extension: Directory Wildcards
+    1.  The file testSuite/D/6/INT/myscript.sh contains commands where astericks are placed in multiple segments of the
+        path.
+    2.  Regardless of the placement of the asterick, mysh will still return the appropiate names of files that match 
+        the specified pattern, or pass the wildcard token to the command unchanged. 
+    3.  The wildcards do not match hidden files nor directories, as proved by .gitignore in the testSuite directory

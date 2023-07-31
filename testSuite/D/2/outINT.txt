@@ -1,0 +1,9 @@
+Welcome to MySH 3.0
+mysh> /common/home/ypp10/Desktop/Systems/p2
+mysh> mysh> /common/home/ypp10/Desktop/Systems
+mysh> mysh> /common/home/ypp10/Desktop/Systems/p2
+mysh> this should work
+mysh> pwd
+mysh> cd
+mysh> exit
+mysh> mysh: exiting

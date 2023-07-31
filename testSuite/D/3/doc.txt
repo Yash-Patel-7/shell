@@ -1,0 +1,11 @@
+Test:   If an error is caused using built-in commands (ex: changing to a non-existent or inaccessible directory), mysh 
+        prints an error message to stderr, and the last exit status is set to 1. 
+
+1.  The built-in commands exit, pwd, and cd are used to determine whether mysh prints an error message to stderr when an
+    an error is caused using built-in commands.
+2.  The two errors caused by using the cd command is changing to a non-existent/inaccessible directory and passing in 
+    more than 1 argument to the cd command. 
+3.  The one error caused by using pwd is passing in any argument to the pwd command. Note that pwd does not take any
+    arguments.
+4.  The one error caused by using exit is passing in any argument to the exit command. Note that exit does not take
+    any arguments.

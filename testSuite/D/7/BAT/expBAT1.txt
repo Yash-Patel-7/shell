@@ -1,0 +1,6 @@
+../../../../testSuite/D/4/INT/hello.c ../../../../testSuite/D/6/INT/echo.c
+../../../../testSuite/A/2/expBAT.txt ../../../../testSuite/A/2/expINT.txt
+../../../../testSuite/A/2/outBAT.txt ../../../../testSuite/A/2/outINT.txt
+echo outINT.txt expINT.txt echo.c myscript.sh
+testSuite/*
+command not found: echo.c
