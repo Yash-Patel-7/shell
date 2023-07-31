@@ -1,0 +1,14 @@
+Test:
+Extension: Home Directory
+	1.	The user’s home directory is obtained using getenv(“HOME”)
+	2.	When cd is called with no arguments, it changes the working directory to the home directory
+	3.	Tokens beginning with ~/ are interpreted as relative to the home directory.
+			a.	The ~ is replaced with the home directory.
+
+Both Modes:
+	1.	mysh will successfully replace the ~ in tokens beginning with ~/ to the home directory. 
+			a.	This is proven by the first output of p2/testSuite/E/1/outBAT.txt and p2/testSuite/E/1/outINT.txt, as they both contain
+				the appropiate file stored in the file path given.
+	2. 	When cd is called with no arguments, mysh will successfully change the working directory to the home directory. This is proven
+		by the second output of p2/testSuite/E/1/outBAT.txt and p2/testSuite/E/1/outINT.txt, as they both contain the appropiate home
+		directory.

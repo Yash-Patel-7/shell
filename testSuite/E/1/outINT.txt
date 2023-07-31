@@ -1,0 +1,4 @@
+Welcome to MySH 3.0
+mysh> /common/home/ypp10/random/~/hello/~ ~
+mysh> mysh> /common/home/ypp10
+mysh> mysh: exiting
