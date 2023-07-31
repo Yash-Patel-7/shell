@@ -1,0 +1,82 @@
+Project II: My shell 
+Testing Requirements
+
+-	The following is the list of all requirements that were tested in testSuite. The structure of this text file matches the structure of the testSuite. 
+-	Next to every requirement, there is a (section_testCase) that should be read as testSuite/section/testCase 
+		-	Note that some requirements are (Shown in Code), thus you may refer to mysch.c
+
+A. Overview
+	1.	mysh takes up to one argument (A_1)
+	2.	If given one argument, it will run in batch mode (A_2)
+	3.	If given no arguments, it will run in interactive mode (A_2)
+	4.	Program must have one input loop and command parsing algorithm that works for both modes (Shown in Code)
+B. Batch Mode
+	1.	mysh opens specified file (Shown in Code)
+	2.	mysh interprets contents as sequence of commands (where each command is lines of text separated by newlines) (Shown in Code)
+	3.	mysh will execute the commands sequentially (execute command, wait for completion, then execute next command) (B_1)
+	4.	mysh terminates once it reaches the end of input file (B_2) 
+	5.	mysh terminates when it encounters the command exit (B_3)
+C. Interactive Mode
+	1.	mysh prints a greeting before the first prompt (C_1)
+	2.	Before reading a command, mysh will write a prompt to stdout to indicate that it is ready to read input (“mysh> ”) (C_1)
+	3.	mysh reads commands from stdin (C_1)
+	4.	After executing a command, mysh will print a new prompt (C_2)
+			a.	If the last command fails, print prompt “!mysh> ” and read the next command (C_2)
+			b.	Else print prompt “mysh> ” and read the next command (C_2)
+	5.	To print the prompts appropriately, if a newline character is already entered, mysh does not call read() again (Shown in Code)
+	6.	mysh terminates once it reaches the end of the input file (C_3)
+	7.	mysh prints a message and terminates once it encounters the command exit (C_4)
+D. Command Format
+	1.	mysh commands are parsed through for:
+			a.	Tokens that are non-whitespace characters separated by whitespace (Shown in Code)
+			b.	Tokens that are |, <, and > which do not need to be separated by whitespace. Refer to sections Pipes and Redirection for testing token functionality (Shown in Code)
+	2.	The command’s tokens become the arguments to the command or subprocess with wildcards replaced (excluding file redirection sequences) (Shown in Code)
+	3.	There is no intrinsic limit to the length of a command that will cause program to fail. (D_1)
+
+	I. Command Name
+		1.	The code interprets the first token of a command or sub-command as the program/built-in operation to execute. (D_2)
+		2.	If an error is caused using built-in commands (ex: changing to a non-existent or inaccessible directory), mysh prints an error message to stderr, and the last exit status is set to 1. (D_3)
+		3.	If the first token contains a slash (/), mysh uses:
+				a.	fork() to create a subprocess
+				b.	execv() to execute the specified program (providing argument)
+				c.	wait() to obtain the program’s exit status (Shown in Code)
+		4.	If the specified program cannot be executed, mysh prints an error message, and the last exit status is set to 1. (D_4)
+		5.	If the command is not built-in and not a path, mysh checks the following directories in the same order for a file with the specified name: (Shown in Code)
+				1. /usr/local/sbin
+				2. /usr/local/bin
+				3. /usr/sbin
+				4. /usr/bin
+				5. /sbin
+				6. /bin 
+
+		6. 	If no file is found, mysh prints an error message, and the last exit status is set to 1. (D_5)
+		7. 	If a file is found but cannot be executed, mysh prints an error message, and the last exit status is set to 1 (D_5)
+				a.	If a file cannot be executed, mysh will not continue looking in the remaining directories (Shown in Code)
+	II. Wildcards (*)
+		1.	mysh matches any file in the specified directory whose name begins with the characters before the asterisk AND ends with the characters after the asterisk
+		2.	When a command includes a wildcard token, it is replaced in the argument list by the list of names matching the pattern
+		3.	If no names match the pattern, mysh passes the token to the command unchanged. (D_6)
+	III. Redirection(< >)
+		1.	When using file redirection before calling execv(), mysh:
+				a.	opens the specified file in the appropriate mode.
+				b.	Uses dup2() in the child process to redefine file 0 or 1 (Shown in Code)
+		2.	When redirecting the output, if the file does not exist, the file should be created using mode 0640 (S_IRUSR|S_IWUSR|S_IRGRP) (D_7)
+		3.	When redirecting the output, if the file already exists, the file should be truncated. (D_7)
+		4.	If mysh is unable to open the file in the requested mode, mysh reports an error, and the last exit status is set to 1. (D_7)
+	IV. Pipes (|)
+		1.	mysh allows for a single pipe to connect two processes (D_8)
+		2.	Before starting the child processes:
+				a.	pipe() is used to create a pipe
+				b.	dup2() is used to set stdout of the first process to the write-end of pipe and stdin of the second process to the read-end of pipe (Shown in Code)
+		3.	If the pipe cannot be created, mysh prints an error message, and the last exit status is set to 1. (D_8)
+		4.	If the pipe can be created, the exit status of the command is set to the exit status of the last sub-command (D_8)
+E. Extensions
+	I. Home Directory
+		1.	The user’s home directory is obtained using getenv(“HOME”)  (Shown in Code)
+		2.	When cd is called with no arguments, it changes the working directory to the home directory  (E_1)
+		3.	Tokens beginning with ~/ are interpreted as relative to the home directory.  (E_1)
+				a.	The ~ is replaced with the home directory.  (E_1)
+	II. Directory Wildcards
+		1.	Asterisks may occur in any segment of a path. For example, */*.c references files ending with .c in any subdirectory of the working directory (excluding files and subdirectories that begin with a period). (D_6)
+		2.	You may allow more than one asterisk within a path segment, but this is not required. (D_6)
+
