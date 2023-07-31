@@ -1,0 +1,15 @@
+Tests:   
+1.  mysh prints a greeting before the first prompt 
+2.  Before reading a command, mysh will write a prompt to stdout to indicate that it is ready to read input (“mysh> ”)
+3.  mysh reads commands from stdin
+
+Interaction Mode:
+1.  There is a greeting "Welcome to MySH 3.0" before the first prompt written to stdout. 
+2.  Executing multiple commands shows that this greeting is only written to stdout before the first prompt, 
+    not before every prompt.
+3.  After the greeting is written to stdout, a prompt “mysh> ” is written to stdout. 
+4.  In testSuite/C/1/outINT.txt, the prompt is followed by the output of the command that was executed. 
+5.  After the command was executed, the prompt is written to stdout once again to indicate that is it ready to read input.
+6.  In test.c, stdin is set to file testSuite/C/1/myscript.sh.
+7.  All shell commands entered in testSuite/C/1/myscript.sh are executed sequentially and written to stdout.
+8.  This means mysh must be reading commands from stdin in Interaction Mode.

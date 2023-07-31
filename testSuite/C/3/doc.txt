@@ -1,0 +1,9 @@
+Test:   mysh terminates once it reaches the end of the input file
+
+Interactive Mode:
+    1.  testSuite/C/3/myscript.sh is empty, thus mysh will immediately reach the end of the file when reading from 
+        stdin.
+    2.  Thus after printing a greeting before the first prompt in Interaction Mode, and then writing a prompt "mysh> " 
+        to indicate mysh is ready to read input, mysh will immediately exit.
+    3.  Note that there is no exit command inputted into testSuite/C/3/myscript.sh, thus mysh recognizes that it has 
+        reached the end of the file and terminates.

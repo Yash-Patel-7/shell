@@ -1,0 +1,3 @@
+Welcome to MySH 3.0
+mysh> hello
+mysh> mysh: exiting

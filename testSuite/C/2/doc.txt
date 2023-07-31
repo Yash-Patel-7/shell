@@ -1,0 +1,12 @@
+Tests:
+    1.  After executing a command, mysh will print a new prompt
+    2.  If the last command fails, print prompt “!mysh> ” and read the next command
+    3.  Else print prompt “mysh> ” and read the next command
+
+
+Interaction Mode:
+    1.  If the previous command did not fail, for example, "echo hi", then the prompt written on a new line before 
+        reading the next command is "mysh> ".
+    2.  If the previous command failed, for example, "saldlk", which is not a valid command, then the prompt written 
+        on a new line before reading the next command is "!mysh> ".
+    3.  The appropiate prompts are printed based on the success of the previous command. 

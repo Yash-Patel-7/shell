@@ -1,0 +1,9 @@
+Welcome to MySH 3.0
+mysh> hi
+mysh> world
+mysh> command not found: saldlk
+!mysh> last call failed
+mysh> command not found: sjsksks
+!mysh> last call failed
+mysh> hi again
+mysh> mysh: exiting

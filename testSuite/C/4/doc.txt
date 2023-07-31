@@ -1,0 +1,7 @@
+Test:   mysh prints a message and terminates once it encounters the command
+
+Interactive Mode:
+    1.  The commands inputted before shell command exit into stdin will be read and executed sequentially.
+    2.  When reading the exit command, mysh will print a message "exiting" that indicates mysh will terminate.
+    3.  Any command inputted after shell command exit into stdin will not be read and executed.
+    4.  This proves that mysh truly terminates after encountering shell command exit.
